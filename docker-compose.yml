@@ -32,7 +32,7 @@ services:
     image: ghcr.io/dareroot/v2networks-frontend:latest
     restart: unless-stopped
     ports:
-      - "4173:4173"
+      - "4173:80"
     depends_on:
       - backend
 
