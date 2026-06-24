@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   db:
     image: postgres:16-alpine
@@ -8,11 +10,6 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-appuser} -d ${DB_NAME:-appdb}"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
 
   backend:
     build: ./backend
@@ -29,8 +26,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change_this_secret}
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:4173}
     depends_on:
-      db:
-        condition: service_healthy
+      - db
 
   frontend:
     build:
