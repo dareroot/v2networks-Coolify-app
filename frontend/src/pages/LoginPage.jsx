@@ -26,7 +26,7 @@ export default function LoginPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
       <div className="card" style={{ width: '100%', maxWidth: 400 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Sign in</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Ingresar a App V2Networks - Coolify</h1>
         <p style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 24 }}>
           Don't have an account? <Link to="/register">Register</Link>
         </p>
@@ -41,7 +41,7 @@ export default function LoginPage() {
           </div>
           {error && <p className="error-msg">{error}</p>}
           <button className="btn-primary" type="submit" disabled={loading}>
-            {loading ? 'Signing in…' : 'Sign in'}
+            {loading ? 'Ingresando…' : 'Ingresar'}
           </button>
         </form>
       </div>
